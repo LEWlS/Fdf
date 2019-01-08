@@ -6,7 +6,7 @@
 #    By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/07 16:52:52 by lbonnete          #+#    #+#              #
-#    Updated: 2019/01/07 17:29:12 by lbonnete         ###   ########.fr        #
+#    Updated: 2019/01/08 16:58:06 by lbonnete         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = fdf
 
 FLAGS = -Wall -Wextra -Werror
 
-SRC = 
+SRC = main.c
 
 OBJ = 
 
@@ -22,14 +22,10 @@ LIB = libft/libft.a
 
 INC = fdf.h
 
-all: $(NAME)
+all: $(NAME) 
 
-$(NAME):
-	echo "\nBuilding Project...\n"
-	gcc $(FLAGS) -c $(SRC) -I $(INC)
-	gcc -o $(NAME) $(OBJ)
-	echo "Compilation Successful"
-	echo "Project Ready"
+$(NAME): 
+	gcc -I /usr/local/include  $(SRC) -L /usr/local/lib/ -l mlx -framework OpenGL -framework AppKit libft/libft.a
 
 p: all clean
 
@@ -47,3 +43,5 @@ norm:
 	norminette $(SRC) $(INC)
 
 .PHONY:	all clean fclean re norm
+
+.SILENT:
