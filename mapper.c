@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 15:35:05 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/01/10 16:05:10 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/01/10 18:01:26 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ char    **ft_get_map(int fd)
 			return (0);
 		if (!(map = ft_realloc_map(map, ++len)))
 			return (0);
-		ft_putendl(map[i]);
 		i++;
 	}
 	return (map);

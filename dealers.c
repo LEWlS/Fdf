@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 15:16:24 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/01/10 15:19:58 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/01/10 17:07:34 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,6 @@ int		deal_key(int key, t_info *try)
 		mlx_destroy_window(try->ptr, try->win);
 		exit(0);
 	}
-	else
-		put_new_square(try, key, 20);
 	return (0);
 }
 

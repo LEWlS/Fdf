@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 16:54:05 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/01/10 16:04:29 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/01/10 17:07:06 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,9 @@ int				deal_mouse(int button, int x, int y, t_mouse_info *info);
 char    		**ft_get_map(int fd);
 /*drawers*/
 int				ft_draw_line_mouse(t_mouse_info *info);
-void			put_new_square(t_info *try, int key, int size);
+/*void			put_new_square(t_info *try, int key, int size);
 void			put_square(t_info *try, int key, int size, int color);
-
+*/
 /*tools*/
 char			**ft_realloc_map(char **map, int len);
 /*info_editers*/
