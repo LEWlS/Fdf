@@ -6,7 +6,7 @@
 #    By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/07 16:52:52 by lbonnete          #+#    #+#              #
-#    Updated: 2019/01/09 13:19:11 by lbonnete         ###   ########.fr        #
+#    Updated: 2019/01/10 16:03:08 by lbonnete         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = fdf
 
 FLAGS = -Wall -Wextra -Werror
 
-SRC = main.c draw_line.c put_square.c
+SRC = main.c draw_line.c mapper.c tools.c dealers.c draw_square.c info_edit.c get_next_line/get_next_line.c
 
 OBJ = 
 

@@ -1,33 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/01/08 15:40:23 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/01/10 15:37:07 by lbonnete         ###   ########.fr       */
+/*   Created: 2019/01/10 15:46:36 by lbonnete          #+#    #+#             */
+/*   Updated: 2019/01/10 15:56:40 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int		main(int ac, char **av)
+char	**ft_realloc_map(char **map, int len)
 {
-	int fd;
-	t_info	info;
-	char	**map;
+    int i;
+    char **ret;
 
-
-	info.ptr = mlx_init();
-	info.win = mlx_new_window(info.ptr, 1600, 900, "New");
-	info.color1 = 000255255255;
-	info.set = 0;
-	fd = open(av[1], O_RDONLY);
-	if (!(map = ft_get_map(fd)))
-		return (0); 
-	mlx_mouse_hook(info.win, deal_mouse, &info);
-	mlx_key_hook(info.win, deal_key, &info);
-	mlx_loop(info.ptr);
-	return (0);
+	if (!(ret = (char **)malloc(sizeof(char *) * len + 1)))
+		return (0);
+	ret[len] = NULL;
+	i = 0;
+	while (i < len)
+	{
+		if (!(ret[i] = ft_strdup(map[i])))
+			return (0);
+		i++;
+	}
+	return (ret);
 }

@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 16:54:05 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/01/09 17:35:23 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/01/10 16:04:29 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,9 @@
 # include "get_next_line/get_next_line.h"
 # include "mlx.h"
 # include "math.h"
-
-typedef struct  s_key_info
-{
-    void    *ptr;
-    void    *win;
-    int     x;
-    int     y;
-    int     z;
-    int     color;
-}               t_info;
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
 
 typedef struct  s_mouse_info
 {
@@ -40,6 +33,22 @@ typedef struct  s_mouse_info
 	int		set;
 }				t_mouse_info;
 
+typedef struct  s_info
+{
+    void	*ptr;
+    void	*win;
+    int		x1;
+    int		y1;
+	int		x2;
+    int		y2;
+    int     unit;
+    int     thickness;
+    int     angle;
+    int		color1;
+    int		color2;
+	int		set;
+}               t_info;
+
 typedef struct s_line
 {
 	int dx;
@@ -50,8 +59,20 @@ typedef struct s_line
 	int e2;
 }				t_line;
 
+/*Dealers*/
+int				deal_key(int key, t_info *try);
+int				deal_mouse(int button, int x, int y, t_mouse_info *info);
+/*mappers*/
+char    		**ft_get_map(int fd);
+/*drawers*/
+int				ft_draw_line_mouse(t_mouse_info *info);
 void			put_new_square(t_info *try, int key, int size);
 void			put_square(t_info *try, int key, int size, int color);
-int				ft_draw_line_mouse(t_mouse_info *info);
+
+/*tools*/
+char			**ft_realloc_map(char **map, int len);
+/*info_editers*/
+void			ft_resest_info(t_mouse_info *info);
+
 
 #endif
