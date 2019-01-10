@@ -3,14 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
+/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 15:46:36 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/01/10 15:56:40 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/01/10 20:42:06 by marvin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+static	void	destroy(char **map)
+{
+
+
+}
 
 char	**ft_realloc_map(char **map, int len)
 {
@@ -27,5 +33,6 @@ char	**ft_realloc_map(char **map, int len)
 			return (0);
 		i++;
 	}
+	destroy(map);
 	return (ret);
 }
