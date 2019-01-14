@@ -19,12 +19,14 @@ int		main(int ac, char **av)
 	t_mouse_info mouse;
 	char	**map;
 
-	
-	
+	if (ac != 2)
+	{
+		ft_putendl("Need file");
+		return (0);
+	}
 	fd = open(av[1], O_RDONLY);
-	if (ac == 2)
-		if (!(map = ft_get_map(fd)))
-			return (0);
+	if (!(map = ft_get_map(fd)))
+		return (0);
 	ft_putendl(map[0]);
 	info.ptr = mlx_init();
 	info.win = mlx_new_window(info.ptr, 1600, 900, "New");
@@ -35,5 +37,6 @@ int		main(int ac, char **av)
 	mlx_mouse_hook(info.win, deal_mouse, &mouse);
 	mlx_key_hook(info.win, deal_key, &info);
 	mlx_loop(info.ptr);
+	close(fd);
 	return (0);
 }
