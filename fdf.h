@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 16:54:05 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/01/14 16:57:30 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/01/14 17:45:33 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct  s_mouse_info
     int		y2;
     int		color;
 	int		set;
+    int     thickness;
 }				t_mouse_info;
 
 typedef struct  s_info
