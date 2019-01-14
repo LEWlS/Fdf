@@ -6,7 +6,7 @@
 #    By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/07 16:52:52 by lbonnete          #+#    #+#              #
-#    Updated: 2019/01/10 17:05:59 by lbonnete         ###   ########.fr        #
+#    Updated: 2019/01/14 16:50:31 by lbonnete         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ INC = fdf.h
 all: $(NAME) 
 
 $(NAME): 
-	gcc -I /usr/local/include  $(SRC) -L /usr/local/lib/ -l mlx -framework OpenGL -framework AppKit libft/libft.a
+	gcc -o fdf -I /usr/local/include  $(SRC) -L /usr/local/lib/ -l mlx -framework OpenGL -framework AppKit libft/libft.a
 
 p: all clean
 

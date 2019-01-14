@@ -6,13 +6,13 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 15:35:05 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/01/14 16:09:49 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/01/14 17:15:13 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-char    **ft_get_map(int fd)
+char    **ft_get_char_map(int fd)
 {
 	char	*line;
 	char	**map;
@@ -33,4 +33,11 @@ char    **ft_get_map(int fd)
 		i++;
 	}
 	return (map);
+}
+
+int		ft_get_map(t_map_info *map)
+{
+
+
+	
 }

@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 15:16:24 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/01/10 17:07:34 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/01/14 16:24:45 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int		deal_mouse(int button, int x, int y, t_mouse_info *info)
 		info->x2 = x;
 		info->y2 = y;
 		ft_draw_line_mouse(info);
-		ft_resest_info(info);
+		ft_resest_mouse_info(info);
 	}
 	return (info->set);
 }

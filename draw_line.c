@@ -6,20 +6,11 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/08 18:19:54 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/01/10 17:20:49 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/01/14 16:19:17 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "fdf.h"
-
-void	ft_resest_info(t_mouse_info *info)
-{
-	info->x1 = 0;
-	info->y1 = 0;
-	info->x2 = 0;
-	info->y2 = 0;
-	info->set = 0;
-}
 
 int             ft_draw_line_mouse(t_mouse_info *info)
 {

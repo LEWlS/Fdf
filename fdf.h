@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 16:54:05 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/01/10 17:07:06 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/01/14 16:57:30 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,13 @@ typedef struct  s_info
 	int		set;
 }               t_info;
 
+typedef struct  s_map_info
+{
+    int **map;
+    int longueur;
+    int largeur;
+}               t_map_info;
+
 typedef struct s_line
 {
 	int dx;
@@ -71,8 +78,10 @@ void			put_square(t_info *try, int key, int size, int color);
 */
 /*tools*/
 char			**ft_realloc_map(char **map, int len);
+void        	destroy_map(char ***map);
 /*info_editers*/
-void			ft_resest_info(t_mouse_info *info);
+void			ft_resest_mouse_info(t_mouse_info *info);
+void			ft_resest_info(t_info *info);
 
 
 #endif
