@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 16:54:05 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/01/14 17:45:33 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/01/15 17:14:52 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,10 +68,11 @@ typedef struct s_line
 }				t_line;
 
 /*Dealers*/
-int				deal_key(int key, t_info *try);
+int				deal_key(int key, t_mouse_info *mouse);
 int				deal_mouse(int button, int x, int y, t_mouse_info *info);
 /*mappers*/
-char    		**ft_get_map(int fd);
+int				ft_get_map(t_map_info *map, int fd);
+char            **ft_get_char_map(int fd);
 /*drawers*/
 int				ft_draw_line_mouse(t_mouse_info *info);
 /*void			put_new_square(t_info *try, int key, int size);
@@ -79,7 +80,8 @@ void			put_square(t_info *try, int key, int size, int color);
 */
 /*tools*/
 char			**ft_realloc_map(char **map, int len);
-void        	destroy_map(char ***map);
+void        	destroy_tab(char ***tab);
+int				ft_tab_len(char **tab);
 /*info_editers*/
 void			ft_resest_mouse_info(t_mouse_info *info);
 void			ft_resest_info(t_info *info);

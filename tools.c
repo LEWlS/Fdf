@@ -6,25 +6,35 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 15:46:36 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/01/14 16:57:13 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/01/15 17:03:43 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void	destroy_map(char ***map)
+int		ft_tab_len(char **tab)
 {
 	int i;
 
 	i = 0;
-	while ((*map)[i])
+	while (tab[i])
+		i++;
+	return (i);
+}
+
+void	destroy_tab(char ***tab)
+{
+	int i;
+
+	i = 0;
+	while ((*tab)[i])
 	{
-		free((*map)[i]);
-		(*map)[i] = 0;
+		free((*tab)[i]);
+		(*tab)[i] = 0;
 		i++;
 	}
-	free(*map);
-	*map = 0;
+	free(*tab);
+	*tab = 0;
 }
 
 char	**ft_realloc_map(char **map, int len)
@@ -42,6 +52,6 @@ char	**ft_realloc_map(char **map, int len)
 			return (0);
 		i++;
 	}
-	destroy_map(&map);
+	destroy_tab(&map);
 	return (ret);
 }
