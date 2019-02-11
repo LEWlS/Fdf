@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 15:16:24 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/01/15 17:19:02 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/02/11 17:52:22 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,16 @@ int		deal_key(int key, t_mouse_info *info)
 	}
 	if (key == 17)
 	{
-		info->thickness++;
+		if (info->thickness < 10)
+			info->thickness++;
 		ft_putstr("thickness set to :");
 		ft_putnbr(info->thickness);
 		ft_putendl("");
 	}
 	if (key == 16)
 	{
-		info->thickness--;
+		if (info->thickness > 0)
+			info->thickness--;
 		ft_putstr("thickness set to :");
 		ft_putnbr(info->thickness);
 		ft_putendl("");
@@ -40,6 +42,11 @@ int		deal_key(int key, t_mouse_info *info)
 
 int		deal_mouse(int button, int x, int y, t_mouse_info *info)
 {
+	ft_putstr("x = ");
+	ft_putnbr(x);
+	ft_putstr(" | y = ");
+	ft_putnbr(y);
+	ft_putendl("");
 	if (info->set == 0)
 	{
 		info->x1 = x;
@@ -51,7 +58,7 @@ int		deal_mouse(int button, int x, int y, t_mouse_info *info)
 		info->x2 = x;
 		info->y2 = y;
 		ft_draw_line_mouse(info);
-		ft_resest_mouse_info(info);
+		ft_reset_mouse_info(info);
 	}
 	return (info->set);
 }

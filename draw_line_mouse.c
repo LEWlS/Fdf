@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/08 18:19:54 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/02/11 13:58:11 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/02/11 15:24:36 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ int             ft_draw_line_mouse(t_mouse_info *info)
 	line.err = (line.dx > line.dy ? line.dx : -line.dy) / 2;
 	while (info->x1 !=info->x2 && info->y1 != info->y2)
 	{
-		draw_point(info);
+		draw_point_mouse(info);
 		e2 = line.err;
 		if (e2 > -line.dx)
 		{
