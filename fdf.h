@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 16:54:05 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/01/15 17:14:52 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/02/11 13:58:37 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,48 +23,49 @@
 
 typedef struct  s_mouse_info
 {
-    void	*ptr;
-    void	*win;
-    int		x1;
-    int		y1;
-	int		x2;
-    int		y2;
-    int		color;
-	int		set;
-    int     thickness;
+    void		*ptr;
+    void		*win;
+    int			x1;
+    int			y1;
+	int			x2;
+    int			y2;
+    int			color;
+	int			set;
+    int     	thickness;
 }				t_mouse_info;
 
 typedef struct  s_info
 {
-    void	*ptr;
-    void	*win;
-    int		x1;
-    int		y1;
-	int		x2;
-    int		y2;
-    int     unit;
-    int     thickness;
-    int     angle;
-    int		color1;
-    int		color2;
-	int		set;
+    void		*ptr;
+    void		*win;
+    int			limit_x1;
+    int			limit_y1;
+	int			limit_x2;
+    int			limit_y2;
+    int			unit;
+    int			thickness;
+    int			angle;
+    int			color1;
+    int			color2;
+	int		    set;
+    t_map_info  map;
 }               t_info;
 
 typedef struct  s_map_info
 {
-    int **map;
-    int longueur;
-    int largeur;
+    int			**map;
+    int			longueur;
+    int			largeur;
 }               t_map_info;
 
 typedef struct s_line
 {
-	int dx;
-	int sx;
-	int dy;
-	int sy;
-	int err;
-	int e2;
+	int			dx;
+	int			sx;
+	int			dy;
+	int			sy;
+	int			err;
+	int			e2;
 }				t_line;
 
 /*Dealers*/
@@ -75,6 +76,7 @@ int				ft_get_map(t_map_info *map, int fd);
 char            **ft_get_char_map(int fd);
 /*drawers*/
 int				ft_draw_line_mouse(t_mouse_info *info);
+void			draw_point_mouse(t_mouse_info *info);
 /*void			put_new_square(t_info *try, int key, int size);
 void			put_square(t_info *try, int key, int size, int color);
 */

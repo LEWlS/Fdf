@@ -1,58 +1,58 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   draw_line.c                                        :+:      :+:    :+:   */
+/*   draw_line_mouse.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/11 13:52:58 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/02/11 14:00:02 by lbonnete         ###   ########.fr       */
+/*   Created: 2019/01/08 18:19:54 by lbonnete          #+#    #+#             */
+/*   Updated: 2019/02/11 13:58:11 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "fdf.h"
 
-void	draw_point(t_info *info, int x1, int y1, int x2, int y2)
+void	draw_point_mouse(t_mouse_info *info)
 {
 	int x;
 	int y;
 
-	x = x1 - info->thickness;
-	while (x < x1 + info->thickness)
+	x = info->x1 - info->thickness;
+	while (x < info->x1 + info->thickness)
 	{
-		y = y1 - info->thickness;
-		while(y < y1 + info->thickness)
+		y = info->y1 - info->thickness;
+		while(y < info->y1 + info->thickness)
 		{
-			mlx_pixel_put(info->ptr, info->win, x, y, info->color1);
+			mlx_pixel_put(info->ptr, info->win, x, y, info->color);
 			y++;
 		}
 		x++;
 	}
 }
 
-int             ft_draw_line(t_info *info, int x1, int y1, int x2, int y2)
+int             ft_draw_line_mouse(t_mouse_info *info)
 {
 	t_line line;
 	int e2;
 
-	line.dx = abs(x2 - x1);
-	line.sx = x1 < x2 ? 1 : -1;
-	line.dy = abs(y2 - y1);
-	line.sy = y1 < y2 ? 1 : -1;
+	line.dx = abs(info->x2 - info->x1);
+	line.sx = info->x1 < info->x2 ? 1 : -1;
+	line.dy = abs(info->y2 - info->y1);
+	line.sy = info->y1 < info->y2 ? 1 : -1;
 	line.err = (line.dx > line.dy ? line.dx : -line.dy) / 2;
-	while (x1 != x2 && y1 != y2)
+	while (info->x1 !=info->x2 && info->y1 != info->y2)
 	{
-		draw_point(info, x1, y1, x2, y2);
+		draw_point(info);
 		e2 = line.err;
 		if (e2 > -line.dx)
 		{
 			line.err -= line.dy;
-			x1 += line.sx;
+			info->x1 += line.sx;
 		}
 		if (e2 < line.dy)
 		{
 			line.err += line.dx;
-			y1 += line.sy;
+			info->y1 += line.sy;
 		}
 	}
 	return (1);

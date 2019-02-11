@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 15:35:05 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/01/15 16:55:49 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/02/11 13:49:51 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,10 @@ int		ft_get_map(t_map_info *map, int fd)
 	char	**tmp;
 	int 	i;
 	int		j;
+	int 	cap;
 
 	i = 0;
+	cap = 1;
 	if (!(c_map = ft_get_char_map(fd)))
 		return (0);
 	map->largeur = ft_tab_len(c_map);
@@ -51,7 +53,13 @@ int		ft_get_map(t_map_info *map, int fd)
 	while (i < map->largeur)
 	{
 		tmp = ft_strsplit(c_map[i], ' ');
-		map->longueur = ft_tab_len(tmp);
+		if (cap)
+		{
+			map->longueur = ft_tab_len(tmp);
+			cap = 0;
+		}
+		if (map->longueur != ft_tab_len(tmp) && i != map->largeur - 1 )
+			return (0);
 		if (!((map->map)[i] = (int *)malloc(sizeof(int) * map->longueur)))
 			return (0);
 		j = 0;

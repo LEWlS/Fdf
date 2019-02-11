@@ -23,7 +23,10 @@ int		main(int ac, char **av)
 	{
 		fd = open(av[1], O_RDONLY);
 		if (!(ft_get_map(&map, fd)))
+		{
+			ft_putendl("map error");
 			return (0);
+		}
 	}
 	ft_resest_info(&info);
 	ft_resest_mouse_info(&mouse);
