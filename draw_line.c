@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 13:52:58 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/02/11 17:54:46 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/02/13 13:40:15 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int     ft_draw_line(t_info *info)
 	line.sy = info->y1 < info->y2 ? 1 : -1;
 	line.err = (line.dx > line.dy ? line.dx : -line.dy) / 2;
 	while (info->x1 != info->x2 && info->y1 != info->y2
-    && info->x1 < 1600 && info->y1 < 900 && info->x1 > 0 && info->y1 > 0)
+    && info->x1 < info->window_width && info->y1 < info->window_height && info->x1 > 0 && info->y1 > 0)
 	{
 		draw_point(info);
 		e2 = line.err;

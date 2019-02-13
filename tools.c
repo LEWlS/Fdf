@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 15:46:36 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/01/15 17:03:43 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/02/13 13:41:49 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,4 +54,27 @@ char	**ft_realloc_map(char **map, int len)
 	}
 	destroy_tab(&map);
 	return (ret);
+}
+
+int		RGB(int r, int g, int b)
+{
+	return (256 * 256 * (r) + 256 * (g) + (b));
+}
+
+void	put_font(t_info *info)
+{
+	int x;
+	int y;
+
+	x = 0;
+	while (x < info->window_width)
+	{
+		y = 0;
+		while(y < info->window_height)
+		{
+			mlx_pixel_put(info->ptr, info->win, x, y, info->font);
+			y++;
+		}
+		x++;
+	}
 }

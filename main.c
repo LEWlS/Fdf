@@ -16,7 +16,6 @@ int		main(int ac, char **av)
 {
 	int fd;
 	t_info	info;
-	t_mouse_info mouse;
 	t_map_info map;
 
 	if (ac == 2)
@@ -31,26 +30,20 @@ int		main(int ac, char **av)
 		}
 	}
 	ft_reset_info(&info);
-	ft_reset_mouse_info(&mouse);
-	
-	
 	info.ptr = mlx_init();
-	info.win = mlx_new_window(info.ptr, 1600, 900, "New");
+	info.win = mlx_new_window(info.ptr, info.window_width, info.window_height, "New");
 	info.color1 = RGB(255,255,255);
-	mouse.color = info.color1;
-	mouse.ptr = info.ptr;
-	mouse.win = info.win;
 	if ((info.map = &map))
 	{
 		ft_putendl("Starting to draw");
+		printing_map_size(&(info.map));
 		draw_links(&info);
 	}
-	mlx_mouse_hook(info.win, deal_mouse, &mouse);
-	mlx_key_hook(info.win, deal_key, &mouse);
+	mlx_mouse_hook(info.win, deal_mouse, &info);
+	mlx_key_hook(info.win, deal_key, &info);
 	mlx_loop(info.ptr);
 	close(fd);
 	free(&map);
 	free(&info);
-	free(&mouse);
 	return (0);
 }

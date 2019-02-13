@@ -6,13 +6,13 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 14:41:13 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/02/11 17:44:15 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/02/13 13:59:58 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void    static  printing_for_draw_links(t_map_info *map)
+void    static  printing_map_size(t_map_info *map)
 {
     ft_putstr("longueur = ");
     ft_putnbr(map->longueur);
@@ -29,7 +29,6 @@ void            draw_links(t_info *info)
     int mapx;
     int mapy;
 
-    printing_for_draw_links(&map);
     mapx = 0;
     mapy = 0;
     while(mapy < map.hauteur)
