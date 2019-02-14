@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 16:54:05 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/02/14 14:54:09 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/02/14 15:19:07 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ typedef struct  s_info
     int			y1;
 	int			x2;
     int			y2;
+    int         y_origine;
     int         pas;
     int			thickness;
 	int			amp;
@@ -88,6 +89,7 @@ int				get_map(t_map_info *map, int fd);
 char            **get_char_map(int fd);
 void    		draw_links(t_info *info);
 /*Drawers*/
+void    		draw_links(t_info *info);
 void    		draw_bottom_links(t_info *info);
 void    		draw_upper_links(t_info *info);
 int				draw_point(t_info *info);

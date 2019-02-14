@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 13:52:58 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/02/14 14:45:43 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/02/14 15:33:20 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,13 +72,15 @@ int     draw_line(t_info *info)
 void    img_mod(int x, int y, t_info *info)
 {
     int pos;
+	int color_diff;
 
+	color_diff = abs(info->y_origine - y);
     pos = x * 4;
     pos += y * info->image_width * 4;
     if (pos + 2 < info->image_width * 4 * info->image_height && pos >= 0)
     {
         info->addr[pos + 2] = 90;
-        info->addr[pos + 1] = 90;
+        info->addr[pos + 1] = color_diff;
         info->addr[pos] = 90;
     }
 }

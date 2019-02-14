@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 15:16:24 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/02/14 14:42:52 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/02/14 15:41:43 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int		deal_key(int key, t_info *info)
 	}
 	if (key == 1)
 	{
-			info->amp++;
+		info->amp++;
 		drawer(info);
 	}
 	if (key == 17)
@@ -118,7 +118,7 @@ int		deal_key(int key, t_info *info)
 	if (key == 18)
 	{
 		if (info->pas > 2)
-		info->pas -= 2;
+			info->pas -= 2;
 		ft_putstr("Pas set to : ");
 		ft_putnbr(info->pas);
 		ft_putendl("");

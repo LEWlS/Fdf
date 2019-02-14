@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 14:41:13 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/02/14 14:58:00 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/02/14 15:19:35 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,7 @@ void            draw_links(t_info *info)
                 info->y1 = (mapx + mapy) * (info->width/2) + info->start_y - ((map.map)[mapy][mapx] * info->amp);
                 info->x2 = ((mapx + 1) - mapy) * info->width + info->start_x;
                 info->y2 = ((mapx + 1) + mapy) * (info->width/2) + info->start_y - ((map.map)[mapy][mapx + 1] * info->amp);
+                info->y_origine = (mapx + mapy) * (info->width/2) + info->start_y;
                 draw_line(info);
             }
             if (mapy + 1 < map.hauteur)
@@ -77,6 +78,7 @@ void            draw_links(t_info *info)
                 info->y1 = (mapx + mapy) * (info->width/2) + info->start_y - ((map.map)[mapy][mapx] * info->amp);
                 info->x2 = (mapx - (mapy + 1)) * info->width + info->start_x;
                 info->y2 = (mapx + (mapy + 1)) * (info->width/2) + info->start_y - ((map.map)[mapy + 1][mapx] * info->amp);
+                info->y_origine = (mapx + mapy) * (info->width/2) + info->start_y;
                 draw_line(info);
             }
 			if (mapx - 1 >= 0)
@@ -85,6 +87,7 @@ void            draw_links(t_info *info)
                 info->y1 = (mapx + mapy) * (info->width/2) + info->start_y - ((map.map)[mapy][mapx] * info->amp);
                 info->x2 = ((mapx - 1) - mapy) * info->width + info->start_x;
                 info->y2 = ((mapx - 1) + mapy) * (info->width/2) + info->start_y - ((map.map)[mapy][mapx - 1] * info->amp);
+                info->y_origine = (mapx + mapy) * (info->width/2) + info->start_y;
                 draw_line(info);
             }
 			if (mapy - 1 >= 0)
@@ -93,9 +96,9 @@ void            draw_links(t_info *info)
                 info->y1 = (mapx + mapy) * (info->width/2) + info->start_y - ((map.map)[mapy][mapx] * info->amp);
                 info->x2 = (mapx - (mapy - 1)) * info->width + info->start_x;
                 info->y2 = (mapx + (mapy - 1)) * (info->width/2) + info->start_y - ((map.map)[mapy - 1][mapx] * info->amp);
+                info->y_origine = (mapx + mapy) * (info->width/2) + info->start_y;
                 draw_line(info);
             }   
-			
             mapx++;
         }
         mapy++;
