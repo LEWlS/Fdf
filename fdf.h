@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 16:54:05 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/02/14 15:19:07 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/02/14 16:48:44 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,19 +20,6 @@
 # include <sys/types.h>
 # include <sys/stat.h>
 # include <fcntl.h>
-
-typedef struct  s_mouse_info
-{
-    void		*ptr;
-    void		*win;
-    int			x1;
-    int			y1;
-	int			x2;
-    int			y2;
-    int			color;
-	int			set;
-    int     	thickness;
-}				t_mouse_info;
 
 typedef struct  s_map_info
 {
@@ -68,6 +55,7 @@ typedef struct  s_info
     void        *image;
     int         image_height;
 	int 		image_width;
+    int         hud_cap;
     t_map_info  *map;
 }               t_info;
 
@@ -97,6 +85,8 @@ int             draw_line(t_info *info);
 void            img_mod(int x, int y, t_info *info);
 void    		drawer(t_info *info);
 void            mouse_drawer(t_info *info);
+void            put_hud(t_info *info);
+void            put_info_screen(t_info *info);
 /*Tools*/
 char			**realloc_map(char **map, int len);
 void        	destroy_tab(char ***tab);

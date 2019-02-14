@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 14:41:13 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/02/14 15:19:35 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/02/14 17:29:34 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ void    drawer(t_info *info)
     info->image = mlx_new_image(info->ptr, info->image_width , info->image_height );
     info->addr = mlx_get_data_addr(info->image, &bpp, &size_l, &endian);
 	draw_links(info);
-    mlx_put_image_to_window(info->ptr, info->win, info->image, 0, 0);
+    put_hud(info);
+    mlx_put_image_to_window(info->ptr, info->win, info->image, 0, 100);
     mlx_destroy_image(info->ptr, info->image);
 }
 

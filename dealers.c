@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 15:16:24 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/02/14 15:41:43 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/02/14 16:51:22 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,6 @@ int		deal_key(int key, t_info *info)
 	if (key == 82)
 	{
 		reset_info(info);
-		drawer(info);
 	}
 	if (key == 35)
 	{
@@ -50,23 +49,19 @@ int		deal_key(int key, t_info *info)
 	if (key == 69)
 	{
 		info->width += 2;
-		drawer(info);
 	}
 	if (key == 78)
 	{
 		if (info->width > 2)
 			info->width -= 2;
-		drawer(info);
 	}
 	if (key == 0)
 	{
 		info->amp--;
-		drawer(info);
 	}
 	if (key == 1)
 	{
 		info->amp++;
-		drawer(info);
 	}
 	if (key == 17)
 	{
@@ -88,25 +83,21 @@ int		deal_key(int key, t_info *info)
 	{
 		ft_putendl("Moving left");
 		info->start_x += info->pas;
-		drawer(info);
 	}
 	if (key == 124)
 	{
 		ft_putendl("Moving right");
 		info->start_x -= info->pas;
-		drawer(info);
 	}
 	if (key == 126)
 	{
 		ft_putendl("Moving up");
 		info->start_y += info->pas;
-		drawer(info);
 	}
 	if (key == 125)
 	{
 		ft_putendl("Moving down");
 		info->start_y -= info->pas;
-		drawer(info);
 	}
 	if (key == 19)
 	{
@@ -123,6 +114,8 @@ int		deal_key(int key, t_info *info)
 		ft_putnbr(info->pas);
 		ft_putendl("");
 	}
+	drawer(info);
+	put_hud(info);
 	return (0);
 }
 
