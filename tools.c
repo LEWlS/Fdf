@@ -6,13 +6,13 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 15:46:36 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/02/13 13:41:49 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/02/14 14:44:13 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-int		ft_tab_len(char **tab)
+int		tab_len(char **tab)
 {
 	int i;
 
@@ -37,7 +37,7 @@ void	destroy_tab(char ***tab)
 	*tab = 0;
 }
 
-char	**ft_realloc_map(char **map, int len)
+char	**realloc_map(char **map, int len)
 {
     int i;
     char **ret;
@@ -59,22 +59,4 @@ char	**ft_realloc_map(char **map, int len)
 int		RGB(int r, int g, int b)
 {
 	return (256 * 256 * (r) + 256 * (g) + (b));
-}
-
-void	put_font(t_info *info)
-{
-	int x;
-	int y;
-
-	x = 0;
-	while (x < info->window_width)
-	{
-		y = 0;
-		while(y < info->window_height)
-		{
-			mlx_pixel_put(info->ptr, info->win, x, y, info->font);
-			y++;
-		}
-		x++;
-	}
 }

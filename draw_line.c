@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 13:52:58 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/02/13 13:40:15 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/02/14 14:45:43 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int     draw_point(t_info *info)
 
     if (info->thickness == 0)
     {
-         mlx_pixel_put(info->ptr, info->win, info->x1, info->y1, info->color1);
+        img_mod(info->x1, info->y1, info);
     }
     else
     {
@@ -31,7 +31,7 @@ int     draw_point(t_info *info)
               return (0);
 	    	while(y < info->y1 + info->thickness)
 	    	{
-	    		mlx_pixel_put(info->ptr, info->win, x, y, info->color1);
+	    		img_mod(x, y, info);
 	    		y++;
 	    	}
 	    	x++;
@@ -40,7 +40,7 @@ int     draw_point(t_info *info)
     return (1);
 }
 
-int     ft_draw_line(t_info *info)
+int     draw_line(t_info *info)
 {
 	t_line line;
 	int e2;
@@ -50,8 +50,8 @@ int     ft_draw_line(t_info *info)
 	line.dy = abs(info->y2 - info->y1);
 	line.sy = info->y1 < info->y2 ? 1 : -1;
 	line.err = (line.dx > line.dy ? line.dx : -line.dy) / 2;
-	while (info->x1 != info->x2 && info->y1 != info->y2
-    && info->x1 < info->window_width && info->y1 < info->window_height && info->x1 > 0 && info->y1 > 0)
+	while ((info->x1 != info->x2 || info->y1 != info->y2)
+    && info->x1 < info->image_width && info->y1 < info->image_height && info->x1 > 0 && info->y1 > 0)
 	{
 		draw_point(info);
 		e2 = line.err;
@@ -67,4 +67,18 @@ int     ft_draw_line(t_info *info)
 		}
 	}
 	return (1);
+}
+
+void    img_mod(int x, int y, t_info *info)
+{
+    int pos;
+
+    pos = x * 4;
+    pos += y * info->image_width * 4;
+    if (pos + 2 < info->image_width * 4 * info->image_height && pos >= 0)
+    {
+        info->addr[pos + 2] = 90;
+        info->addr[pos + 1] = 90;
+        info->addr[pos] = 90;
+    }
 }
