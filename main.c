@@ -17,6 +17,22 @@ void	end_fdf(t_info *info)
 	close(info->fd);
 }
 
+char	*cutter(char	*str)
+{
+	int i;
+
+	i = 0;
+	if (str)
+	{
+		while (str[i])
+			i++;
+		while (str[i] != '/' && i != 0)
+			i--;
+		return (&(str[i + 1]));
+	}
+	return (0);
+}
+
 int		main(int ac, char **av)
 {
 	t_info	info;
@@ -37,6 +53,7 @@ int		main(int ac, char **av)
 	}
 	if ((info.map = &map))
 	{
+		map.name = cutter(av[1]);
 		ft_putendl("Starting to draw");
 		printing_map_size(&map);
 		reset_info(&info);

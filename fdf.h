@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 16:54:05 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/02/14 16:48:44 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/02/16 15:49:56 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct  s_map_info
     int			**map;
     int			longueur;
     int			hauteur;
+    char        *name;
 }               t_map_info;
 
 typedef struct  s_info
@@ -92,7 +93,7 @@ char			**realloc_map(char **map, int len);
 void        	destroy_tab(char ***tab);
 int				tab_len(char **tab);
 int		        RGB(int r, int g, int b);
-void	        put_font(t_info *info);
+char	        *cutter(char	*str);
 /*Info_editers*/
 void			reset_info(t_info *info);
 /*printers*/
