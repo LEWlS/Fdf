@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 14:41:13 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/02/14 17:29:34 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/02/16 17:06:24 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void    mouse_drawer(t_info *info)
     info->addr = mlx_get_data_addr(info->image, &bpp, &size_l, &endian);
 	draw_line(info);
     draw_links(info);
-    mlx_put_image_to_window(info->ptr, info->win, info->image, 0, 0);
+    mlx_put_image_to_window(info->ptr, info->win, info->image, info->image_x, info->image_y);
     mlx_destroy_image(info->ptr, info->image);
 }
 
@@ -43,11 +43,11 @@ void    drawer(t_info *info)
     int size_l = info->image_width * 4;
     int i;
     int endian = 0;
-    info->image = mlx_new_image(info->ptr, info->image_width , info->image_height );
+    info->image = mlx_new_image(info->ptr, info->image_width , info->image_height);
     info->addr = mlx_get_data_addr(info->image, &bpp, &size_l, &endian);
 	draw_links(info);
     put_hud(info);
-    mlx_put_image_to_window(info->ptr, info->win, info->image, 0, 100);
+    mlx_put_image_to_window(info->ptr, info->win, info->image, info->image_x, info->image_y);
     mlx_destroy_image(info->ptr, info->image);
 }
 

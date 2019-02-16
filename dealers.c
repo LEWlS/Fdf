@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 15:16:24 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/02/14 16:51:22 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/02/16 17:49:15 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 int		deal_key(int key, t_info *info)
 {
+	mlx_clear_window(info->ptr, info->win);
 	ft_putnbr(key);
 	ft_putendl("");
-	if (key == 82)
+	if (key == 82 || key == 29)
 	{
 		reset_info(info);
 	}
@@ -31,9 +32,6 @@ int		deal_key(int key, t_info *info)
 		ft_putendl("");
 		ft_putstr("amp = ");
 		ft_putnbr(info->amp);
-		ft_putendl("");
-		ft_putstr("thickess = ");
-		ft_putnbr(info->thickness);
 		ft_putendl("");
 	}
 	if (key == 53)
@@ -63,22 +61,6 @@ int		deal_key(int key, t_info *info)
 	{
 		info->amp++;
 	}
-	if (key == 17)
-	{
-		if (info->thickness > 0)
-			info->thickness--;
-		ft_putstr("thickness set to :");
-		ft_putnbr(info->thickness);
-		ft_putendl("");
-	}
-	if (key == 16)
-	{
-		if (info->thickness < 10)
-			info->thickness++;
-		ft_putstr("thickness set to :");
-		ft_putnbr(info->thickness);
-		ft_putendl("");
-	}
 	if (key == 123)
 	{
 		ft_putendl("Moving left");
@@ -99,14 +81,14 @@ int		deal_key(int key, t_info *info)
 		ft_putendl("Moving down");
 		info->start_y -= info->pas;
 	}
-	if (key == 19)
+	if (key == 13)
 	{
 		info->pas += 2;
 		ft_putstr("Pas set to : ");
 		ft_putnbr(info->pas);
 		ft_putendl("");
 	}
-	if (key == 18)
+	if (key == 12)
 	{
 		if (info->pas > 2)
 			info->pas -= 2;

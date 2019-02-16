@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/07 16:54:05 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/02/16 15:49:56 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/02/16 17:30:44 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,13 +42,10 @@ typedef struct  s_info
     int			y2;
     int         y_origine;
     int         pas;
-    int			thickness;
 	int			amp;
 	int 		width;
-    int			angle;
     int			color1;
     int			color2;
-    int         font;
 	int		    set;
     int         window_height;
     int         window_width;
@@ -56,6 +53,8 @@ typedef struct  s_info
     void        *image;
     int         image_height;
 	int 		image_width;
+    int         image_x;
+    int         image_y;
     int         hud_cap;
     t_map_info  *map;
 }               t_info;
@@ -81,13 +80,16 @@ void    		draw_links(t_info *info);
 void    		draw_links(t_info *info);
 void    		draw_bottom_links(t_info *info);
 void    		draw_upper_links(t_info *info);
-int				draw_point(t_info *info);
 int             draw_line(t_info *info);
 void            img_mod(int x, int y, t_info *info);
 void    		drawer(t_info *info);
 void            mouse_drawer(t_info *info);
 void            put_hud(t_info *info);
-void            put_info_screen(t_info *info);
+void            put_top_info(t_info *info);
+int             draw_line_hud(t_info *info);
+void            put_cadre(t_info *info);
+void	        put_commands(t_info *info);
+void	        put_status(t_info *info);
 /*Tools*/
 char			**realloc_map(char **map, int len);
 void        	destroy_tab(char ***tab);

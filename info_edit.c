@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 15:17:22 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/02/14 17:28:54 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/02/16 17:21:35 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,8 @@ void			reset_info(t_info *info)
     info->y1 = 0;
 	info->x2 = 0;
     info->y2 = 0;
-    info->thickness = 0;
     info->amp = 1;
     info->width = 32;
-    info->angle = 0;
     info->color1 = RGB(255,255,255);
     info->color2 = 0;
 	info->set = 0;
@@ -34,9 +32,10 @@ void			reset_info(t_info *info)
     info->window_width = 1920;
     info->start_x = info->window_width / 2 - ((map.longueur / 2) * info->width);
 	info->start_y = info->window_height / 2 - ((map.hauteur / 2) * info->width);
-    info->image_height = info->window_height - 100;
-    info->image_width = info->window_width;
-    info->font = RGB(0,0,0);
+    info->image_height = info->window_height - 50;
+    info->image_width = 6 * info->window_width / 8 ;
+    info->image_x = info->window_width / 8;
+    info->image_y = 75;
     ft_putendl("Info reset");
 }
 

@@ -6,39 +6,11 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 13:52:58 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/02/14 17:13:36 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/02/16 17:22:30 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 # include "fdf.h"
-
-int     draw_point(t_info *info)
-{
-	int x;
-	int y;
-
-    if (info->thickness == 0)
-    {
-        img_mod(info->x1, info->y1, info);
-    }
-    else
-    {
-	    if ((x = info->x1 - info->thickness) < 0)
-           return (0);
-    	while (x < info->x1 + info->thickness)
-    	{
-    		if ((y = info->y1 - info->thickness) < 0)
-              return (0);
-	    	while(y < info->y1 + info->thickness)
-	    	{
-	    		img_mod(x, y, info);
-	    		y++;
-	    	}
-	    	x++;
-    	}
-    }
-    return (1);
-}
 
 int     draw_line(t_info *info)
 {
@@ -53,7 +25,7 @@ int     draw_line(t_info *info)
 	while ((info->x1 != info->x2 || info->y1 != info->y2)
     && info->x1 < info->image_width && info->y1 < info->image_height && info->x1 >= 0 && info->y1 >= 0)
 	{
-		draw_point(info);
+		img_mod(info->x1, info->y1, info);
 		e2 = line.err;
 		if (e2 > -line.dx)
 		{
