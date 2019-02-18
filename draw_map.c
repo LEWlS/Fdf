@@ -6,22 +6,11 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 14:41:13 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/02/16 17:06:24 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/02/18 15:36:53 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-void	printing_map_size(t_map_info *map)
-{
-    ft_putstr("longueur = ");
-    ft_putnbr(map->longueur);
-    ft_putendl("");
-    ft_putstr("hauteur = ");
-    ft_putnbr(map->hauteur);
-    ft_putendl("");
-
-}
 
 void    mouse_drawer(t_info *info)
 {

@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 15:17:22 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/02/16 17:21:35 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/02/18 15:36:51 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ void			reset_info(t_info *info)
     info->image_width = 6 * info->window_width / 8 ;
     info->image_x = info->window_width / 8;
     info->image_y = 75;
-    ft_putendl("Info reset");
 }
 
 
