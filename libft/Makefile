@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+         #
+#    By: trabut <trabut@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/12 18:24:53 by lbonnete          #+#    #+#              #
-#    Updated: 2018/11/28 15:29:28 by lbonnete         ###   ########.fr        #
+#    Updated: 2019/02/27 13:30:09 by trabut           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -150,18 +150,17 @@ OBJ = ft_lstnew.o\
 all: $(NAME)
 
 $(NAME):
-	@echo "\nBuilding Library...\n"
+	@echo "\nBuilding libft...\n"
 	@gcc -c -Wall -Wextra -Werror $(SRC)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
 	@echo "Compilation Successful"
-	@echo "Library Ready"
+	@echo "libft Ready"
 
 a: all clean
 
 clean:
 	@/bin/rm -f $(OBJ)
-	@echo "Objects Destroyed"
 
 fclean:	clean
 		@/bin/rm -f $(NAME)

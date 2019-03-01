@@ -3,94 +3,59 @@
 /*                                                        :::      ::::::::   */
 /*   draw_map.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
+/*   By: trabut <trabut@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/11 14:41:13 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/02/18 15:36:53 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/02/25 12:33:59 by trabut           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
-void    mouse_drawer(t_info *info)
+void	drawer(t_info *info)
 {
-    int bpp = 32;
-    int size_l = info->image_width * 4;
-    int i;
-    int endian = 0;
-    info->image = mlx_new_image(info->ptr, info->image_width , info->image_height );
-    info->addr = mlx_get_data_addr(info->image, &bpp, &size_l, &endian);
-	draw_line(info);
-    draw_links(info);
-    mlx_put_image_to_window(info->ptr, info->win, info->image, info->image_x, info->image_y);
-    mlx_destroy_image(info->ptr, info->image);
+	int bpp;
+	int size_l;
+	int endian;
+
+	bpp = 32;
+	size_l = info->iw * 4;
+	endian = 0;
+	info->im = mlx_new_image(info->pt, info->iw, info->ih);
+	info->addr = mlx_get_data_addr(info->im, &bpp, &size_l, &endian);
+	if (info->proj == 1)
+		draw_links(info);
+	else
+		draw_links_caval(info);
+	put_hud(info);
+	mlx_put_image_to_window(info->pt, info->wn, info->im, info->ix, info->iy);
+	mlx_destroy_image(info->pt, info->im);
 }
 
-void    drawer(t_info *info)
+void	draw_links(t_info *info)
 {
-    int bpp = 32;
-    int size_l = info->image_width * 4;
-    int i;
-    int endian = 0;
-    info->image = mlx_new_image(info->ptr, info->image_width , info->image_height);
-    info->addr = mlx_get_data_addr(info->image, &bpp, &size_l, &endian);
-	draw_links(info);
-    put_hud(info);
-    mlx_put_image_to_window(info->ptr, info->win, info->image, info->image_x, info->image_y);
-    mlx_destroy_image(info->ptr, info->image);
-}
+	t_map_info	map;
+	int			mapx;
+	int			mapy;
 
-void            draw_links(t_info *info)
-{
-    t_map_info map = *(info->map);
-    int mapx;
-    int mapy;
-
-    mapx = 0;
-    mapy = 0;
-    while(mapy < map.hauteur)
-    {
-        mapx = 0;
-        while (mapx < map.longueur)
-        {
-            if (mapx + 1 < map.longueur)
-            {
-                info->x1 = (mapx - mapy) * info->width  + info->start_x; 
-                info->y1 = (mapx + mapy) * (info->width/2) + info->start_y - ((map.map)[mapy][mapx] * info->amp);
-                info->x2 = ((mapx + 1) - mapy) * info->width + info->start_x;
-                info->y2 = ((mapx + 1) + mapy) * (info->width/2) + info->start_y - ((map.map)[mapy][mapx + 1] * info->amp);
-                info->y_origine = (mapx + mapy) * (info->width/2) + info->start_y;
-                draw_line(info);
-            }
-            if (mapy + 1 < map.hauteur)
-            {
-                info->x1 = (mapx - mapy) * info->width  + info->start_x; 
-                info->y1 = (mapx + mapy) * (info->width/2) + info->start_y - ((map.map)[mapy][mapx] * info->amp);
-                info->x2 = (mapx - (mapy + 1)) * info->width + info->start_x;
-                info->y2 = (mapx + (mapy + 1)) * (info->width/2) + info->start_y - ((map.map)[mapy + 1][mapx] * info->amp);
-                info->y_origine = (mapx + mapy) * (info->width/2) + info->start_y;
-                draw_line(info);
-            }
+	map = *(info->map);
+	mapx = 0;
+	mapy = 0;
+	while (mapy < map.hauteur)
+	{
+		mapx = 0;
+		while (mapx < map.longueur)
+		{
+			if (mapx + 1 < map.longueur)
+				right_line(info, mapx, mapy);
+			if (mapy + 1 < map.hauteur)
+				bottom_line(info, mapx, mapy);
 			if (mapx - 1 >= 0)
-            {
-                info->x1 = (mapx - mapy) * info->width  + info->start_x; 
-                info->y1 = (mapx + mapy) * (info->width/2) + info->start_y - ((map.map)[mapy][mapx] * info->amp);
-                info->x2 = ((mapx - 1) - mapy) * info->width + info->start_x;
-                info->y2 = ((mapx - 1) + mapy) * (info->width/2) + info->start_y - ((map.map)[mapy][mapx - 1] * info->amp);
-                info->y_origine = (mapx + mapy) * (info->width/2) + info->start_y;
-                draw_line(info);
-            }
+				left_line(info, mapx, mapy);
 			if (mapy - 1 >= 0)
-            {
-                info->x1 = (mapx - mapy) * info->width  + info->start_x; 
-                info->y1 = (mapx + mapy) * (info->width/2) + info->start_y - ((map.map)[mapy][mapx] * info->amp);
-                info->x2 = (mapx - (mapy - 1)) * info->width + info->start_x;
-                info->y2 = (mapx + (mapy - 1)) * (info->width/2) + info->start_y - ((map.map)[mapy - 1][mapx] * info->amp);
-                info->y_origine = (mapx + mapy) * (info->width/2) + info->start_y;
-                draw_line(info);
-            }   
-            mapx++;
-        }
-        mapy++;
-    }
+				upper_line(info, mapx, mapy);
+			mapx++;
+		}
+		mapy++;
+	}
 }
