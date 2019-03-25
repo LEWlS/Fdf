@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mapper.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: trabut <trabut@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 15:35:05 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/03/06 16:07:22 by trabut           ###   ########.fr       */
+/*   Updated: 2019/03/07 12:24:45 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	**get_char_map(int fd)
 
 	len = 0;
 	i = 0;
-	while (get_next_line(fd, &line))
+	while (get_next_line(fd, &line) == 1)
 	{
 		if (!(map = realloc_map(map, ++len)))
 			return (0);

@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 15:17:22 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/03/01 14:05:38 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/03/25 17:34:32 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	reset_info(t_info *info)
 	info->amp = 1;
 	info->w = 32;
 	info->set = 0;
-	info->pas = 50;
+	info->pas = info->w;
 	info->wh = 1080;
 	info->ww = 1920;
 	info->ih = info->wh - 50;

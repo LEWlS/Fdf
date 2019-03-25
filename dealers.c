@@ -6,7 +6,7 @@
 /*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 15:16:24 by lbonnete          #+#    #+#             */
-/*   Updated: 2019/02/27 17:38:22 by lbonnete         ###   ########.fr       */
+/*   Updated: 2019/03/25 17:40:02 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,14 @@ int		deal_key(int key, t_info *info)
 	if (key == 51)
 		mlx_clear_window(info->pt, info->wn);
 	if (key == 69 || key == 24)
+	{
 		info->w += 2;
+	}
 	if (key == 78 || key == 27)
+	{
 		if (info->w > 2)
-			info->w -= 2;
+			info->w -= 2; 
+	}
 	if (key == 0 || key == 1 || key == 13 || key == 12)
 		deal_amp_pas(key, info);
 	update_info(info);

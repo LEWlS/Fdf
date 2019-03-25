@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: trabut <trabut@student.42.fr>              +#+  +:+       +#+        */
+/*   By: lbonnete <lbonnete@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/10 20:39:27 by marvin            #+#    #+#             */
-/*   Updated: 2019/03/06 16:02:30 by trabut           ###   ########.fr       */
+/*   Updated: 2019/03/25 17:33:29 by lbonnete         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ int		main(int ac, char **av)
 	}
 	info.map->name = cutter(av[1]);
 	main_support(&info);
-	mlx_key_hook(info.wn, deal_key, &info);
+	mlx_hook(info.wn, 2, 0, deal_key, &info);
 	mlx_loop(info.pt);
 	return (0);
 }
